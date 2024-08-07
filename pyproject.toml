@@ -96,6 +96,15 @@ check_untyped_defs = true
 
 [[tool.mypy.overrides]]
 module = [
+    'ipalib.*',
+    'ipaplatform.*',
+    'ipapython.*',
+    'ipaserver.*',
+]
+disable_error_code = "override"
+
+[[tool.mypy.overrides]]
+module = [
     'augeas.*',
     'jwcrypto.*',
 ]
