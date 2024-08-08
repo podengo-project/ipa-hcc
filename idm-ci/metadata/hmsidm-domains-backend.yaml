@@ -20,7 +20,7 @@ domains:
         # medium machine, Go compiler requires lots of RAM
         size: medium
         group: ipaclient
-        os: rhel-9.3
+        os: rhel-9.4
 phases:
   - name: init
     steps:
