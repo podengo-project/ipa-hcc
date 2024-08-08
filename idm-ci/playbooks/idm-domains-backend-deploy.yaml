@@ -8,6 +8,7 @@
       COMPOSE_FILE: "deployments/backend-compose.yaml"
       # force local image
       CONTAINER_IMAGE_BASE: "hmsidm-backend"
+      MOCK_RBAC_CONTAINER: "mock-rbac"
 
   tasks:
     - name: Provision idm-domains-backend
@@ -63,6 +64,12 @@
           args:
             chdir: /idm-domains-backend
           environment: "{{ compose_env }}"
+
+        - name: Prepare config.yaml from template
+          ansible.builtin.copy:
+            src: /idm-domains-backend/configs/config.example.yaml
+            dest: /idm-domains-backend/configs/config.yaml
+            remote_src: yes
 
         - name: Start compose (podman-compose up)
           command: timeout 180 make compose-up
