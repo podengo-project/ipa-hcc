@@ -133,6 +133,7 @@ ignore = [
     "S310", # Audit URL open for permitted schemes
     "S603", # untrusted input
     "F811", # Redefinition of unused {name} from line
+    "I001", # Import block is un-sorted or un-formatted
 ]
 # lowest supported version
 target-version = "py37"
