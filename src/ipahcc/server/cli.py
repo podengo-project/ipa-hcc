@@ -18,6 +18,10 @@ from .util import prompt_yesno
 logger = logging.getLogger(__name__)
 
 
+class PrerequisitesException(Exception):
+    pass
+
+
 def uuidtype(v):
     uuid.UUID(v)
     return v
@@ -83,6 +87,27 @@ def confirm_register(
         default=False,
         timeout=args.prompt_timeout,
     )
+
+
+def check_registration_prerequisites(
+    args: argparse.Namespace, result: hccapi.APIResult
+):
+    """
+    Check if the IPA deployment is ready for domain registration
+
+    Raises PrerequisitesException if the deployment is not ready.
+
+    :param args: argparse.Namespace
+    :param result: hccapi.APIResult
+    """
+    j = result.json()
+    if typing.TYPE_CHECKING:
+        assert isinstance(j, dict)
+
+    if not j['org_id']:
+        raise PrerequisitesException(
+            "IPA deployment is missing an Organization ID"
+        )
 
 
 def register_callback(
@@ -221,6 +246,12 @@ def main(args=None):
                 if not args.unattended and sys.stdin.isatty():
                     # print summary and ask for confirmation
                     _, result = api.status_check()
+                    try:
+                        check_registration_prerequisites(args, result)
+                    except PrerequisitesException as e:
+                        parser.exit(
+                            status=1, message=f"Prerequisites error: {e}\n"
+                        )
                     do_it = confirm_register(args, result)
                     if not do_it:
                         parser.exit(
