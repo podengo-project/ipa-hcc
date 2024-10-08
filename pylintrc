@@ -10,6 +10,9 @@ extension-pkg-whitelist=
 [CLASSES]
 valid-metaclass-classmethod-first-arg=cls
 
+[DESIGN]
+max-positional-arguments=10
+
 [MESSAGES CONTROL]
 
 enable=
