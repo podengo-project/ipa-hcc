@@ -104,7 +104,7 @@ def check_registration_prerequisites(
     if typing.TYPE_CHECKING:
         assert isinstance(j, dict)
 
-    if not j['org_id']:
+    if not j["org_id"]:
         raise PrerequisitesException(
             "IPA deployment is missing an Organization ID"
         )
