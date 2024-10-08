@@ -16,7 +16,7 @@ stages:
     matrix:
       - TOXENV:
           - py,py36,py39,cov
-          - ruff,mypy,pylint
+          - ruff,mypy,pylint,format
           - jslint,yamllint,maketest
           - rpkg
   script:
