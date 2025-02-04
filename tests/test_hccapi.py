@@ -363,7 +363,7 @@ class TestCLI(TestHCCAPICommon):
             org id: {conftest.ORG_ID}
             auto enrollment: True
             servers:
-            \t{conftest.SERVER_FQDN} (HCC plugin: yes)
+            \t{conftest.SERVER_FQDN} (HCC enrollment server, HCC update server)
             """
             ),
         )

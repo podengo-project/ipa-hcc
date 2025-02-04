@@ -180,8 +180,17 @@ def status_callback(
     print("servers:")
     for server in j[hccplatform.HCC_DOMAIN_TYPE]["servers"]:
         fqdn = server["fqdn"]
-        has_hcc = "yes" if server["hcc_update_server"] else "no"
-        print(f"\t{fqdn} (HCC plugin: {has_hcc})")
+
+        hcc_roles = []
+        if server["hcc_enrollment_server"]:
+            hcc_roles.append("HCC enrollment server")
+        if server["hcc_update_server"]:
+            hcc_roles.append("HCC update server")
+        hcc_roles_string = ""
+        if len(hcc_roles) > 0:
+            hcc_roles_string = " (" + ", ".join(hcc_roles) + ")"
+
+        print(f"\t{fqdn}{hcc_roles_string}")
 
 
 parser_status = subparsers.add_parser("status", help="Check status")
