@@ -1,5 +1,4 @@
-"""Generate and print public key for testing
-"""
+"""Generate and print public key for testing"""
 
 from . import generate_private_key
 

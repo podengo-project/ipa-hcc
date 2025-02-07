@@ -1,5 +1,4 @@
-"""Interface to register or update domains with Hybrid Cloud Console
-"""
+"""Interface to register or update domains with Hybrid Cloud Console"""
 
 import base64
 import json

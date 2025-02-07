@@ -3,8 +3,7 @@
 # Copyright (C) 2023  Christian Heimes <cheimes@redhat.com>
 # See COPYING for license
 #
-"""Configure Hybrid Cloud Console MockAPI settings
-"""
+"""Configure Hybrid Cloud Console MockAPI settings"""
 import logging
 import os
 

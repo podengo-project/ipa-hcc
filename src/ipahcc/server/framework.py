@@ -3,8 +3,7 @@
 # Copyright (C) 2023  Christian Heimes <cheimes@redhat.com>
 # See COPYING for license
 #
-"""Simple WSGI framework
-"""
+"""Simple WSGI framework"""
 import collections
 import inspect
 import json

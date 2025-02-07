@@ -3,8 +3,7 @@
 # Copyright (C) 2022  Christian Heimes <cheimes@redhat.com>
 # See COPYING for license
 #
-"""Configure Hybrid Cloud Console basic settings
-"""
+"""Configure Hybrid Cloud Console basic settings"""
 import logging
 
 from augeas import Augeas  # pylint: disable=import-error

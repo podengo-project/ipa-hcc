@@ -45,7 +45,7 @@ def create_certinfo(
 
 
 def parse_rhsm_cert(
-    data: typing.Union[str, typing.ByteString]
+    data: typing.Union[str, typing.ByteString],
 ) -> typing.Tuple[str, str]:
     """Parse RHSM certificate
 

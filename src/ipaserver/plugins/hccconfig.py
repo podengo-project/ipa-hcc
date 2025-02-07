@@ -3,8 +3,7 @@
 # Copyright (C) 2022  Christian Heimes <cheimes@redhat.com>
 # See COPYING for license
 #
-"""IPA plugin for Red Hat Hybrid Cloud Console
-"""
+"""IPA plugin for Red Hat Hybrid Cloud Console"""
 from urllib.parse import urlparse
 
 from ipalib import _, api, errors

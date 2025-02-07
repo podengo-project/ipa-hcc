@@ -3,8 +3,7 @@
 # Copyright (C) 2022  Christian Heimes <cheimes@redhat.com>
 # See COPYING for license
 #
-"""Configure Hybrid Cloud Console enrollment services
-"""
+"""Configure Hybrid Cloud Console enrollment services"""
 import logging
 import os
 
