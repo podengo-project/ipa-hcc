@@ -441,7 +441,8 @@ touch %{buildroot}%{_sysconfdir}/ipa/hcc.conf
 
 %make install_server_plugin install_registration_service
 %{__mkdir_p} %{buildroot}%{_sbindir}
-mv %{buildroot}%{_bindir}/ipa-hcc %{buildroot}%{_sbindir}/ipa-hcc
+# skip mv for unified bin/sbin (since f42)
+test -e %{buildroot}%{_sbindir}/ipa-hcc || mv %{buildroot}%{_bindir}/ipa-hcc %{buildroot}%{_sbindir}/ipa-hcc
 %py3_shebang_fix %{buildroot}%{_sbindir}/ipa-hcc
 %{__mkdir_p} %{buildroot}%{_sharedstatedir}/gssproxy
 touch %{buildroot}%{_sharedstatedir}/gssproxy/hcc-enrollment.keytab
