@@ -169,6 +169,8 @@ documentation how to create an account on Ethel and how to set up VPN and proxy.
 * Create a refresh token [prod](https://access.redhat.com/management/api) /
   [stage](https://access.stage.redhat.com/management/api) and update
   `RH_API_TOKEN` in your `idm-ci/secrets` file.
+  **NOTE** tokens expire after 30 days of inactivity.  A new token
+  will need to be generated if this occurs.
 
 ```sh
 . idm-ci/secrets
@@ -177,11 +179,11 @@ te --upto test idm-ci/metadata/hmsidm-dev.yaml
 
 ## Ephemeral environment
 
-See `idm-domains-backend`'s `README.md` and and `DEVELOPMENT.md` how to set
+See `idmsvc-backend`'s `README.md` and and `DEVELOPMENT.md` how to set
 up your local environment and how to deploy to ephemeral.
 
 ```sh
-cd idm-domains-backend
+cd idmsvc-backend
 ```
 
 Login and deploy backend:
@@ -204,7 +206,7 @@ The script creates a domain stub on the backend and prints the
 `ipa-hcc register` command. It also creates `idm-ci-secrets` file, which is
 later used by idm-ci.
 
-Copy `idm-ci-secrets` from `idm-domains-backend` to local directory
+Copy `idm-ci-secrets` from `idmsvc-backend` to local directory
 `idm-ci/secrets.ephemeral`. The values for `IDMSVC_BACKEND`,
 `EPHEMERAL_USERNAME`, and `EPHEMERAL_PASSWORD` are retrieved from
 ephemeral cluster configuration with the `oc` command. Every ephemeral

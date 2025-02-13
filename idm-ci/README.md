@@ -32,7 +32,12 @@ number. Contact RH customer support to add an EBS number to an account.
   `ETHEL_EXPORTED_ACOUNTS` contains a CSV export with necessary lists
   entitlements.
 - Create activation key at https://access.stage.redhat.com/management/activation_keys
-- Create RHSM API token at https://access.stage.redhat.com/management/api
+- Create RHSM API token at
+  https://access.stage.redhat.com/management/api.  Set the value in
+  `idm-ci/secrets`, or for CI/CD in the `RH_API_TOKEN` variable.
+  **NOTE** tokens expire after 30 days of inactivity.  A new token
+  will need to be generated if this occurs.  For CI/CD, use the
+  account mentioned in the `ETHEL_EXPORTED_ACCOUNTS` variable.
 
 Stage has two configuration flavors:
 
