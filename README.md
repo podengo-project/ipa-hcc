@@ -1,4 +1,7 @@
-# IPA plugin for Hybrid Cloud Console
+# IPA plugin and client package for Podengo / Hybrid Cloud Console
+
+**This project is currently inactive.  Issues and merge requests will
+not be attended to.**
 
 The *ipa-hcc* plugin provides schema extension of IPA for
 Hybrid Cloud Console integration. The plugin must be installed on all FreeIPA
